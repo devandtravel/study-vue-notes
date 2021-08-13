@@ -8,13 +8,15 @@
     <link rel="stylesheet" type="text/css" href="theme.css" />
   </head>
   <body>
-    <div class="container pt-5" id="app">
-      <div class="card center">
-        <h1>{{counterTitle}}: {{counter}}</h1>
-        <div>
-          <button class="btn primary" @click="counter++">ADD</button>
-          <button class="btn danger" @click="counter--">SUBTRACT</button>
+    <div class="container" id="app">
+      <div class="card">
+        <h1>{{title}}</h1>
+        <div class="form-control">
+          <input type="text" :placeholder=placeholderString v-model=inputValue />
         </div>
+        <h2>inputValue: {{inputValue}}</h2>
+        <button class="btn">Add</button>
+        <hr />
       </div>
     </div>
 

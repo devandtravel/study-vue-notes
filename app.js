@@ -1,10 +1,12 @@
 const App = {
   data() {
     return {
-      counterTitle: 'Counter',
-      counter: 0
+      placeholderString: 'Note title',
+      title: 'Notes list',
+      inputValue: ''
     }
-  }
+  },
+  methods: {}
 }
 
 Vue.createApp(App).mount('#app')
