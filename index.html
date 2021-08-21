@@ -5,18 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vue basics</title>
-    <!-- <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
-    crossorigin="anonymous"
-    /> -->
     <link rel="stylesheet" type="text/css" href="theme.css" />
   </head>
   <body>
     <div class="container" id="app">
       <div class="card">
-        <h1>{{title}}</h1>
+        <h1
+          :style="{color: inputValue.length < 10?'black':'darkred', fontSize: inputValue.length < 10?'2rem':'3rem'}"
+        >
+          {{inputValue.length < 10 ? title : title + ` (warning: note title must
+          be less than 15 symbols!)`}}
+        </h1>
         <div class="form-control">
           <input
             type="text"
@@ -29,7 +28,9 @@
         <hr />
         <ul class="list" v-if="notes.length !== 0">
           <li v-for="(note, index) in notes" class="list-item">
-            | {{index+1}} | {{note}}
+            <span :class="note.length > 5 ? 'primary' : 'bold'"
+              >| {{index+1}} | {{note}}</span
+            >
             <button type="button" class="delete" @click="deleteNote(index)">
               &times;
             </button>
